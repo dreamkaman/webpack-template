@@ -1,0 +1,88 @@
+/* drop default styles */
+
+:root {
+  --main-font-family: "Roboto", sans-serif;
+  --accent-color: #fc842d;
+  --font-main-color: #212121;
+  --font-secondary-color: #9b9faa;
+  --input-line-color: #e0e0e0;
+  --bg-blue-color: #264061;
+  --bg-gray-color: #eff1f3;
+  /* --transition-for-all: all cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms; */
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+body {
+  margin: 0;
+
+  font-family: var(--main-font-family);
+  font-size: 14px;
+
+  color: #fff;
+  letter-spacing: 0.04em;
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  display: block;
+  padding: 0;
+  cursor: pointer;
+}
+
+nav {
+  padding: 0;
+}
+
+/* ==========================Visually hidden class=======================================*/
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
