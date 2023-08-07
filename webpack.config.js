@@ -15,11 +15,17 @@ module.exports = {
   mode,
   target,
   devtool,
-  entry: path.resolve(__dirname, "src", "index.js"),
+  devServer: {
+    port: 3000,
+    open: true,
+    hot: true,
+  },
+  entry: ["@babel/polyfill", path.resolve(__dirname, "src", "index.js")],
   output: {
     path: path.resolve(__dirname, "dist"),
     clean: true,
     filename: "[name].[contenthash].js",
+    assetModuleFilename: "assets/[hash][ext]", //'assets/[name][ext]'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -40,8 +46,47 @@ module.exports = {
         use: [
           devMode ? "style-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: [
+                  [
+                    "postcss-preset-env",
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
+            },
+          },
           "sass-loader",
         ],
+      },
+      {
+        test: /\.woff2?$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
+      },
+      {
+        test: /\.(jpe?g|png|webp|gif|svg)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "fonts/[name][ext]",
+        },
+      },
+      {
+        test: /\.(?:js|mjs|cjs)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [["@babel/preset-env", { targets: "defaults" }]],
+          },
+        },
       },
     ],
   },
