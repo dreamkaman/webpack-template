@@ -1,7 +1,7 @@
 /* drop default styles */
 
 :root {
-  --main-font-family: "Roboto", sans-serif;
+  --main-font-family: 'Verdana', sans-serif;
   --accent-color: #fc842d;
   --font-main-color: #212121;
   --font-secondary-color: #9b9faa;
@@ -28,7 +28,7 @@ body {
   font-family: var(--main-font-family);
   font-size: 14px;
 
-  color: #fff;
+  color: #000;
   letter-spacing: 0.04em;
   max-width: 100%;
 }
