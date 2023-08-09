@@ -1,15 +1,15 @@
 /* drop default styles */
 
-:root {
-  --main-font-family: 'Verdana', sans-serif;
-  --accent-color: #fc842d;
-  --font-main-color: #212121;
-  --font-secondary-color: #9b9faa;
-  --input-line-color: #e0e0e0;
-  --bg-blue-color: #264061;
-  --bg-gray-color: #eff1f3;
-  /* --transition-for-all: all cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms; */
-}
+/*=================================Variables=============================*/
+$main-font-family: 'TT Hoves', sans-serif;
+$accent-color: #383838;
+$font-dark-color: #333333;
+$font-light-color: #bdbdbd;
+$font-lighter-color: #f3f3f3;
+$bg-section-color: #fbfbfb;
+$bg-footer-color: #2c2c2c;
+
+/* --transition-for-all: all cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms;*/
 
 html {
   box-sizing: border-box;
@@ -25,10 +25,10 @@ html {
 body {
   margin: 0;
 
-  font-family: var(--main-font-family);
+  font-family: $main-font-family;
   font-size: 14px;
 
-  color: #000;
+  color: $font-dark-color;
   letter-spacing: 0.04em;
   max-width: 100%;
 }
@@ -85,4 +85,12 @@ nav {
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
+}
+
+/*============================Break points=================================================*/
+@media screen and (min-width: 1025px) {
+  .container {
+    max-width: 1200px;
+    padding: 0 15px;
+  }
 }

@@ -1,34 +1,55 @@
-//fonts example start
 @font-face {
-  font-family: 'Verdana';
+  font-family: 'TT Hoves';
+  src: url('../fonts/TTHoves-Light.eot');
   src:
-    local('Verdana Regular'),
-    local('Verdana-Regular'),
-    url('../fonts/Verdana.woff2') format('woff2'),
-    url('../fonts/Verdana.woff') format('woff'),
-    url('../fonts/Verdana.ttf') format('truetype');
-  font-weight: 400;
+    local('TT Hoves Light'),
+    local('TTHoves-Light'),
+    url('../fonts/TTHoves-Light.eot') format('embedded-opentype'),
+    url('../fonts/TTHoves-Light.woff2') format('woff2'),
+    url('../fonts/TTHoves-Light.woff') format('woff'),
+    url('../fonts/TTHoves-Light.ttf') format('truetype');
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Verdana';
+  font-family: 'TT Hoves';
+  src: url('../fonts/TTHoves-Regular.eot');
   src:
-    local('Verdana Bold'),
-    local('Verdana-Bold'),
-    url('../fonts/Verdana-Bold.woff2') format('woff2'),
-    url('../fonts/Verdana-Bold.woff') format('woff'),
-    url('../fonts/Verdana-Bold.ttf') format('truetype');
-  font-weight: 700;
+    local('TT Hoves Regular'),
+    local('TTHoves-Regular'),
+    url('../fonts/TTHoves-Regular.eot') format('embedded-opentype'),
+    url('../fonts/TTHoves-Regular.woff2') format('woff2'),
+    url('../fonts/TTHoves-Regular.woff') format('woff'),
+    url('../fonts/TTHoves-Regular.ttf') format('truetype');
+  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'GothamPro-Light';
-  src: url('../fonts/GothamPro-Light.woff');
+  font-family: 'TT Hoves';
+  src: url('../fonts/TTHoves-Medium.eot');
+  src:
+    local('TT Hoves Medium'),
+    local('TTHoves-Medium'),
+    url('../fonts/TTHoves-Medium.eot') format('embedded-opentype'),
+    url('../fonts/TTHoves-Medium.woff2') format('woff2'),
+    url('../fonts/TTHoves-Medium.woff') format('woff'),
+    url('../fonts/TTHoves-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: 'GothamPro-Bold';
-  src: url('../fonts/GothamPro-Bold.woff');
+  font-family: 'TT Hoves';
+  src: url('../fonts/TTHoves-Bold.eot');
+  src:
+    local('TT Hoves Bold'),
+    local('TTHoves-Bold'),
+    url('../fonts/TTHoves-Bold.eot') format('embedded-opentype'),
+    url('../fonts/TTHoves-Bold.woff2') format('woff2'),
+    url('../fonts/TTHoves-Bold.woff') format('woff'),
+    url('../fonts/TTHoves-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
 }
