@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["gifsicle", "mozjpeg", "optipng", "pngquant"]
+  "cSpell.words": ["gifsicle", "mozjpeg", "optipng", "pngquant"],
+  "liveServer.settings.port": 5501
 }
