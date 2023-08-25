@@ -47,22 +47,7 @@ module.exports = {
         template_filename: 'index.html',
       },
       {
-        path: path.resolve(__dirname, 'src/partials', 'section-about.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-contact-us.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-our-projects.html'),
-        location: 'main',
-        template_filename: 'index.html',
-      },
-      {
-        path: path.resolve(__dirname, 'src/partials', 'section-our-tasks.html'),
+        path: path.resolve(__dirname, 'src/partials', 'section-1.html'),
         location: 'main',
         template_filename: 'index.html',
       },
