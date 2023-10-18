@@ -1,0 +1,5 @@
+CURRENT ESLINT CONFIG FOR VANILLA JAVASCRIPT ONLY
+
+1) use | npx eslint --init | to create eslint-config fie;
+2) for frameworks installation of additional packages is needed;
+3) to switch off the rule you should make an line in rules like: 'ruleName': 'off';
