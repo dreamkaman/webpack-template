@@ -1,18 +1,30 @@
-export default {
+module.exports = {
   env: {
     browser: true,
     es2021: true,
   },
-  extends: 'eslint:recommended',
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  overrides: [
+    {
+      env: {
+        node: true,
+      },
+      files: ['.eslintrc.{js,cjs}'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  ],
   parserOptions: {
-    ecmaVersion: 2021,
+    ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['import'],
   rules: {
-    'no-console': 'warn', // Заборона використання console.log і т.п.
-    'no-unused-vars': 'error', // Виявлення не використовуваних змінних
-    indent: ['error', 2], // Дві пробіли на кожний рівень вкладення
-    quotes: ['error', 'single'], // Одинарні лапки для рядків
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 };
