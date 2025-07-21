@@ -1,17 +1,11 @@
-const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
-
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const path = require('path');
-
 const mode = process.env.NODE_ENV || 'development';
-
 const devMode = mode === 'development';
-
 const target = devMode ? 'web' : 'browserslist';
-
 const devtool = devMode ? 'source-map' : undefined;
 
 module.exports = {
@@ -22,13 +16,17 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    static: {
+      directory: path.resolve(__dirname, 'dist'), // ⬅️ serve dist in dev
+    },
   },
-  entry: [path.resolve(__dirname, 'src', 'index.js')],
+  entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/[name][ext]', //or you can use 'assets/[hash][ext]'
+    assetModuleFilename: 'assets/[name][ext]',
+    publicPath: '', // ⬅️ важливо для правильних шляхів до зображень
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -36,7 +34,7 @@ module.exports = {
     }),
     new HtmlWebpackPartialsPlugin([
       {
-        path: './src/partials/header.html',
+        path: path.resolve(__dirname, 'src/partials', 'header.html'),
         location: 'header',
         template_filename: 'index.html',
         priority: 'replace',
@@ -66,6 +64,19 @@ module.exports = {
       {
         test: /\.html$/i,
         loader: 'html-loader',
+        options: {
+          sources: {
+            list: [
+              // 👇 дозволяє обробляти картинки з <img src="">
+              '...',
+              {
+                tag: 'img',
+                attribute: 'src',
+                type: 'src',
+              },
+            ],
+          },
+        },
       },
       {
         test: /\.(c|sa|sc)ss$/i,
@@ -81,9 +92,7 @@ module.exports = {
             },
           },
           'group-css-media-queries-loader',
-          {
-            loader: 'resolve-url-loader',
-          },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
             options: {
@@ -101,32 +110,24 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|webp|gif|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name][ext]',
+        },
         use: devMode
           ? []
           : [
-              {
-                loader: 'image-webpack-loader',
-                options: {
-                  mozjpeg: {
-                    progressive: true,
-                  },
-                  optipng: {
-                    enabled: false,
-                  },
-                  pngquant: {
-                    quality: [0.65, 0.9],
-                    speed: 4,
-                  },
-                  gifsicle: {
-                    interlaced: false,
-                  },
-                  webp: {
-                    quality: 75,
-                  },
-                },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                mozjpeg: { progressive: true },
+                optipng: { enabled: false },
+                pngquant: { quality: [0.65, 0.9], speed: 4 },
+                gifsicle: { interlaced: false },
+                webp: { quality: 75 },
               },
-            ],
-        type: 'asset/resource',
+            },
+          ],
       },
       {
         test: /\.m?js$/i,
