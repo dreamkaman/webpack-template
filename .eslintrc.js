@@ -6,10 +6,10 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:prettier/recommended'],
   overrides: [
     {
+      files: ['webpack.config.cjs', '.eslintrc.{js,cjs}'], // 👈 Додано webpack.config.cjs
       env: {
         node: true,
       },
-      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
       },
